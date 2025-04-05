@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamer Shop</title>
+    <link rel="stylesheet" href="game.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #182C61;
+            color: white;
+            padding: 16px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .carrinho {
+            cursor: pointer;
+            font-size: 20px;
+            padding: 10px;
+        }
+
+        .catalogo {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .produtos {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .produto {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 10px;
+            width: 250px;
+            text-align: center;
+            flex: 1 1 300px;
+            max-width: 300px;
+        }
+
+        .produto img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .preco {
+            font-size: 18px;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .botoes {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: #182C61;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0b1a40;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Gamer Shop</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Sobre a loja</a></li>
+                    <li><a href="game.html">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="carrinho" onclick="toggleCarrinho()">
+                🛒 <span id="contador-carrinho">0</span>
+            </div>
+        </div>
+    </header>
+    
+    <section class="catalogo">
+        <h2>Catálogo de Produtos</h2>
+        <div class="produtos">
+            <div class="produto" data-nome="Controle Gamer" data-preco="199.90">
+                <img src="produto1.jpg" alt="Controle Gamer">
+                <h3>Controle Gamer</h3>
+                <p>Controle sem fio compatível com PC e consoles.</p>
+                <span class="preco">R$ 199,90</span>
+                <div class="botoes">
+                    <button onclick="adicionarAoCarrinho(this)">Adicionar ao Carrinho</button>
+                    <button>Comprar</button>
+                </div>
+            </div>
+            <div class="produto" data-nome="Teclado Mecânico RGB" data-preco="299.90">
+                <img src="produto2.jpg" alt="Teclado Mecânico RGB">
+                <h3>Teclado Mecânico RGB</h3>
+                <p>Teclado mecânico com iluminação RGB personalizável.</p>
+                <span class="preco">R$ 299,90</span>
+                <div class="botoes">
+                    <button onclick="adicionarAoCarrinho(this)">Adicionar ao Carrinho</button>
+                    <button>Comprar</button>
+                </div>
+            </div>
+            <div class="produto" data-nome="Headset Gamer" data-preco="249.90">
+                <img src="produto3.jpg" alt="Headset Gamer">
+                <h3>Headset Gamer</h3>
+                <p>Fone de ouvido com som surround 7.1.</p>
+                <span class="preco">R$ 249,90</span>
+                <div class="botoes">
+                    <button onclick="adicionarAoCarrinho(this)">Adicionar ao Carrinho</button>
+                    <button>Comprar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="carrinho-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleCarrinho()">&times;</span>
+            <h2>Seu Carrinho</h2>
+            <ul id="lista-carrinho"></ul>
+            <p>Total: R$ <span id="total-carrinho">0.00</span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
