@@ -1,0 +1,1 @@
+# loja-gamer-2.0
